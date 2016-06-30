@@ -7,8 +7,9 @@
 # Demo
 
 ### Screenshot
-![screenshot1](http://ww4.sinaimg.cn/large/bce2dea9jw1esbsby9v5fj20u00w8jxx.jpg)
+![screenshot1](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/01.jpg)
+![screenshot1](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/04.jpg)
 
 ### Edit Tags
-![screenshot2](http://ww4.sinaimg.cn/large/bce2dea9jw1esbsbngv8fj20u005w75v.jpg)
-![screenshot3](http://ww4.sinaimg.cn/large/bce2dea9jw1esbsbmoagij20u005sabl.jpg)
+![screenshot2](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/02.jpg)
+![screenshot3](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/03.jpg)
