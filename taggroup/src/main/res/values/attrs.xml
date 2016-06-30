@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TagGroup">
+    <declare-styleable name="GeoloTagGroup">
         <attr name="atg_modleStyle" format="enum">
             <!-- 普通类型 -->
             <enum name="normal" value="0" />

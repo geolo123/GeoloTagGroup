@@ -10,12 +10,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.geolo.taggroup.MainActivity">
 
-
     <com.android.geolo.library.taggroup.GeoloTagGroup
         android:id="@+id/tag_grade_tagGroup"
         style="@style/TagGroup"
         android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
         android:layout_marginTop="10dip"
-        app:atg_modleStyle="radio" />
+        app:atg_modleStyle="append" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tag_grade_tagGroup"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通模式(NORMAL)" />
+
+        <RadioButton
+            android:id="@+id/append"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编辑模式(APPEND)" />
+
+        <RadioButton
+            android:id="@+id/radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单选模式(RADIO)" />
+
+        <RadioButton
+            android:id="@+id/multi_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多选模式(MULTI_SELECT)" />
+    </RadioGroup>
 </RelativeLayout>
