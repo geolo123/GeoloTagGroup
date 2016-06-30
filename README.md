@@ -8,7 +8,7 @@
 
 ### Screenshot
 ![screenshot1](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/01.jpg)
-![screenshot1](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/04.jpg)
+![screenshot1](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/04.png)
 
 ### Edit Tags
 ![screenshot2](https://github.com/geolo123/GeoloTagGroup/blob/master/picture/02.jpg)
