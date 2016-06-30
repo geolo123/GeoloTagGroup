@@ -356,7 +356,7 @@ public class GeoloTagGroup extends ViewGroup {
      *  {@link #STYLE_MODLE_RADIO}       ：单选模式<br/>
      *  {@link #STYLE_MODLE_MULTI_SELECT}：多选模式<br/>
      *  */
-    public void switchStyleModle(int styleModle) {
+    public void switchStyleModel(int styleModle) {
         if (styleModle < STYLE_MODLE_NORMAL || styleModle > STYLE_MODLE_MULTI_SELECT) {
             styleModle = STYLE_MODLE_NORMAL;
         }
@@ -384,6 +384,17 @@ public class GeoloTagGroup extends ViewGroup {
             this.styleModle = styleModle;
             requestLayout();
         }
+    }
+
+    /**
+     * 获取当前的模式<br/>
+     *  {@link #STYLE_MODLE_NORMAL}      ：普通模式<br/>
+     *  {@link #STYLE_MODLE_APPEND}      ：编辑模式<br/>
+     *  {@link #STYLE_MODLE_RADIO}       ：单选模式<br/>
+     *  {@link #STYLE_MODLE_MULTI_SELECT}：多选模式<br/>
+     */
+    public int getCurrentStyleModel() {
+        return styleModle;
     }
 
     /**

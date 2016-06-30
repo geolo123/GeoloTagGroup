@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onTagClick() -- tag:" + tag);
             }
         });
+
         mRadioGroup = (RadioGroup) findViewById(R.id.RadioGroup);
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -50,19 +51,34 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
                     case R.id.normal:// 普通模式
-                        mGeoloTagGroup.switchStyleModle(GeoloTagGroup.STYLE_MODLE_NORMAL);
+                        mGeoloTagGroup.switchStyleModel(GeoloTagGroup.STYLE_MODLE_NORMAL);
                         break;
                     case R.id.append:// 编辑模式
-                        mGeoloTagGroup.switchStyleModle(GeoloTagGroup.STYLE_MODLE_APPEND);
+                        mGeoloTagGroup.switchStyleModel(GeoloTagGroup.STYLE_MODLE_APPEND);
                         break;
                     case R.id.radio:// 单选模式
-                        mGeoloTagGroup.switchStyleModle(GeoloTagGroup.STYLE_MODLE_RADIO);
+                        mGeoloTagGroup.switchStyleModel(GeoloTagGroup.STYLE_MODLE_RADIO);
                         break;
                     case R.id.multi_select:// 多选模式
-                        mGeoloTagGroup.switchStyleModle(GeoloTagGroup.STYLE_MODLE_MULTI_SELECT);
+                        mGeoloTagGroup.switchStyleModel(GeoloTagGroup.STYLE_MODLE_MULTI_SELECT);
                         break;
                 }
             }
         });
+
+        switch (mGeoloTagGroup.getCurrentStyleModel()) {
+            case GeoloTagGroup.STYLE_MODLE_NORMAL:
+                mRadioGroup.check(R.id.normal);
+                break;
+            case GeoloTagGroup.STYLE_MODLE_APPEND:
+                mRadioGroup.check(R.id.append);
+                break;
+            case GeoloTagGroup.STYLE_MODLE_RADIO:
+                mRadioGroup.check(R.id.radio);
+                break;
+            case GeoloTagGroup.STYLE_MODLE_MULTI_SELECT:
+                mRadioGroup.check(R.id.multi_select);
+                break;
+        }
     }
 }
