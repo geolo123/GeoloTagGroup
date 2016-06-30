@@ -109,7 +109,8 @@ There are several attributes you can set:
 # Developed By
 
  Jun Gu - <2dxgujun@gmail.com>
- motify author ：geolo - <geolo@vip.qq.om>
+
+ Modify author ：geolo - <geolo@vip.qq.om>
 
 # License
 
