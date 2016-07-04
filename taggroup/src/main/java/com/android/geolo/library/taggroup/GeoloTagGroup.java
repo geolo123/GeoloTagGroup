@@ -521,6 +521,34 @@ public class GeoloTagGroup extends ViewGroup {
     }
 
     /**
+     * <pre>
+     * 1. 设定被选择的便签(指定索引位置),不提供String[]数组，遍历耗时严重
+     * 2. 普通模式不起作用
+     * 3. 单选模式只取数组第一个值
+     * 4. 多选模式和编辑模式，完全适用
+     * </pre>
+     */
+    public void setCheckedTags(int... indexs) {
+        int count = getChildCount();
+        for (int index : indexs) {
+            if (index < count && index >= 0) {
+                TagView tag = getTagAt(index);
+                if (tag != null) {
+                    if (tag.mState != TagView.STATE_INPUT) {
+                        if (styleModle == STYLE_MODLE_RADIO) {
+                            cleanCheckedStatus();
+                            tag.setChecked(true);
+                            break;// 单选模式只取数组第一个值
+                        } else {
+                            tag.setChecked(true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Returns the tag view at the specified position in the group.
      *
      * @param index the position at which to get the tag view from.
@@ -1047,7 +1075,7 @@ public class GeoloTagGroup extends ViewGroup {
             canvas.drawRect(mVerticalBlankFillRectF, mBackgroundPaint);
 
             if (isChecked && styleModle == STYLE_MODLE_APPEND) {
-                canvas.save();
+                canvas.save();// 绘制 'X' 图片
                 canvas.rotate(45, mCheckedMarkerBound.centerX(), mCheckedMarkerBound.centerY());
                 canvas.drawLine(mCheckedMarkerBound.left, mCheckedMarkerBound.centerY(), mCheckedMarkerBound.right,
                     mCheckedMarkerBound.centerY(), mCheckedMarkerPaint);
