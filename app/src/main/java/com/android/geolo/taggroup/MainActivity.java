@@ -1,8 +1,10 @@
 package com.android.geolo.taggroup;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.RadioGroup;
 
 import com.android.geolo.library.taggroup.GeoloTagGroup;
@@ -80,5 +82,19 @@ public class MainActivity extends AppCompatActivity {
                 mRadioGroup.check(R.id.multi_select);
                 break;
         }
+
+        findViewById(R.id.assign_selected_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mGeoloTagGroup.setCheckedTags(new int[] {0, 2});
+            }
+        });
+        findViewById(R.id.goto_style_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, StyleActivity.class));
+            }
+        });
+
     }
 }

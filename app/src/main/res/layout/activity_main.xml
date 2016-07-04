@@ -50,4 +50,18 @@
             android:layout_height="wrap_content"
             android:text="多选模式(MULTI_SELECT)" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/assign_selected_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RadioGroup"
+        android:text="指定1，3被选中" />
+
+    <Button
+        android:id="@+id/goto_style_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assign_selected_btn"
+        android:text="标签风格Style" />
 </RelativeLayout>
