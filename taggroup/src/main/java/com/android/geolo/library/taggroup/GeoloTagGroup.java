@@ -48,9 +48,6 @@ import java.util.List;
  * </p>
  *
  * @author Jun Gu (http://2dxgujun.com)
- * @version 2.0
- * @since 2015-2-3 14:16:32
- *
  * @author motify by geolo
  * @version 1.0.0
  * @since 2016-6-29 10:49:30
@@ -74,80 +71,132 @@ public class GeoloTagGroup extends ViewGroup {
     private final float default_horizontal_padding;
     private final float default_vertical_padding;
 
-    /** 普通类型 */
+    /**
+     * 普通类型
+     */
     public static final int STYLE_MODLE_NORMAL = 0;
-    /** 新增编辑类型 */
+    /**
+     * 新增编辑类型
+     */
     public static final int STYLE_MODLE_APPEND = 1;
-    /** 单选类型 */
+    /**
+     * 单选类型
+     */
     public static final int STYLE_MODLE_RADIO = 2;
-    /** 多选类型 */
+    /**
+     * 多选类型
+     */
     public static final int STYLE_MODLE_MULTI_SELECT = 3;
 
-    /** Indicates whether this TagGroup is set up to APPEND mode or DISPLAY mode. Default is false. */
+    /**
+     * Indicates whether this TagGroup is set up to APPEND mode or DISPLAY mode. Default is false.
+     */
     // private boolean isAppendMode;
     private int styleModle = 0;
 
-    /** The text to be displayed when the text of the INPUT tag is empty. */
+    /**
+     * The text to be displayed when the text of the INPUT tag is empty.
+     */
     private CharSequence inputHint;
 
-    /** The tag outline border color. */
+    /**
+     * The tag outline border color.
+     */
     private int borderColor;
 
-    /** The tag text color. */
+    /**
+     * The tag text color.
+     */
     private int textColor;
 
-    /** The tag background color. */
+    /**
+     * The tag background color.
+     */
     private int backgroundColor;
 
-    /** The dash outline border color. */
+    /**
+     * The dash outline border color.
+     */
     private int dashBorderColor;
 
-    /** The  input tag hint text color. */
+    /**
+     * The  input tag hint text color.
+     */
     private int inputHintColor;
 
-    /** The input tag type text color. */
+    /**
+     * The input tag type text color.
+     */
     private int inputTextColor;
 
-    /** The checked tag outline border color. */
+    /**
+     * The checked tag outline border color.
+     */
     private int checkedBorderColor;
 
-    /** The check text color */
+    /**
+     * The check text color
+     */
     private int checkedTextColor;
 
-    /** The checked marker color. */
+    /**
+     * The checked marker color.
+     */
     private int checkedMarkerColor;
 
-    /** The checked tag background color. */
+    /**
+     * The checked tag background color.
+     */
     private int checkedBackgroundColor;
 
-    /** The tag background color, when the tag is being pressed. */
+    /**
+     * The tag background color, when the tag is being pressed.
+     */
     private int pressedBackgroundColor;
 
-    /** The tag outline border stroke width, default is 0.5dp. */
+    /**
+     * The tag outline border stroke width, default is 0.5dp.
+     */
     private float borderStrokeWidth;
 
-    /** The tag text size, default is 13sp. */
+    /**
+     * The tag text size, default is 13sp.
+     */
     private float textSize;
 
-    /** The horizontal tag spacing, default is 8.0dp. */
+    /**
+     * The horizontal tag spacing, default is 8.0dp.
+     */
     private int horizontalSpacing;
 
-    /** The vertical tag spacing, default is 4.0dp. */
+    /**
+     * The vertical tag spacing, default is 4.0dp.
+     */
     private int verticalSpacing;
 
-    /** The horizontal tag padding, default is 12.0dp. */
+    /**
+     * The horizontal tag padding, default is 12.0dp.
+     */
     private int horizontalPadding;
 
-    /** The vertical tag padding, default is 3.0dp. */
+    /**
+     * The vertical tag padding, default is 3.0dp.
+     */
     private int verticalPadding;
 
-    /** Listener used to dispatch tag change event. */
+    /**
+     * Listener used to dispatch tag change event.
+     */
     private OnTagChangeListener mOnTagChangeListener;
 
-    /** Listener used to dispatch tag click event. */
+    /**
+     * Listener used to dispatch tag click event.
+     */
     private OnTagClickListener mOnTagClickListener;
 
-    /** Listener used to handle tag click event. */
+    /**
+     * Listener used to handle tag click event.
+     */
     private InternalTagClickListener mInternalTagClickListener = new InternalTagClickListener();
 
     public GeoloTagGroup(Context context) {
@@ -172,7 +221,7 @@ public class GeoloTagGroup extends ViewGroup {
 
         // Load styled attributes.
         final TypedArray a =
-            context.obtainStyledAttributes(attrs, R.styleable.GeoloTagGroup, defStyleAttr, R.style.TagGroup);
+                context.obtainStyledAttributes(attrs, R.styleable.GeoloTagGroup, defStyleAttr, R.style.TagGroup);
         try {
             styleModle = a.getInt(R.styleable.GeoloTagGroup_atg_modleStyle, STYLE_MODLE_NORMAL);
             inputHint = a.getText(R.styleable.GeoloTagGroup_atg_inputHint);
@@ -183,25 +232,25 @@ public class GeoloTagGroup extends ViewGroup {
             inputHintColor = a.getColor(R.styleable.GeoloTagGroup_atg_inputHintColor, default_input_hint_color);
             inputTextColor = a.getColor(R.styleable.GeoloTagGroup_atg_inputTextColor, default_input_text_color);
             checkedBorderColor =
-                a.getColor(R.styleable.GeoloTagGroup_atg_checkedBorderColor, default_checked_border_color);
+                    a.getColor(R.styleable.GeoloTagGroup_atg_checkedBorderColor, default_checked_border_color);
             checkedTextColor = a.getColor(R.styleable.GeoloTagGroup_atg_checkedTextColor, default_checked_text_color);
             checkedMarkerColor =
-                a.getColor(R.styleable.GeoloTagGroup_atg_checkedMarkerColor, default_checked_marker_color);
+                    a.getColor(R.styleable.GeoloTagGroup_atg_checkedMarkerColor, default_checked_marker_color);
             checkedBackgroundColor =
-                a.getColor(R.styleable.GeoloTagGroup_atg_checkedBackgroundColor, default_checked_background_color);
+                    a.getColor(R.styleable.GeoloTagGroup_atg_checkedBackgroundColor, default_checked_background_color);
             pressedBackgroundColor =
-                a.getColor(R.styleable.GeoloTagGroup_atg_pressedBackgroundColor, default_pressed_background_color);
+                    a.getColor(R.styleable.GeoloTagGroup_atg_pressedBackgroundColor, default_pressed_background_color);
             borderStrokeWidth =
-                a.getDimension(R.styleable.GeoloTagGroup_atg_borderStrokeWidth, default_border_stroke_width);
+                    a.getDimension(R.styleable.GeoloTagGroup_atg_borderStrokeWidth, default_border_stroke_width);
             textSize = a.getDimension(R.styleable.GeoloTagGroup_atg_textSize, default_text_size);
             horizontalSpacing =
-                (int) a.getDimension(R.styleable.GeoloTagGroup_atg_horizontalSpacing, default_horizontal_spacing);
+                    (int) a.getDimension(R.styleable.GeoloTagGroup_atg_horizontalSpacing, default_horizontal_spacing);
             verticalSpacing =
-                (int) a.getDimension(R.styleable.GeoloTagGroup_atg_verticalSpacing, default_vertical_spacing);
+                    (int) a.getDimension(R.styleable.GeoloTagGroup_atg_verticalSpacing, default_vertical_spacing);
             horizontalPadding =
-                (int) a.getDimension(R.styleable.GeoloTagGroup_atg_horizontalPadding, default_horizontal_padding);
+                    (int) a.getDimension(R.styleable.GeoloTagGroup_atg_horizontalPadding, default_horizontal_padding);
             verticalPadding =
-                (int) a.getDimension(R.styleable.GeoloTagGroup_atg_verticalPadding, default_vertical_padding);
+                    (int) a.getDimension(R.styleable.GeoloTagGroup_atg_verticalPadding, default_vertical_padding);
         } finally {
             a.recycle();
         }
@@ -281,7 +330,7 @@ public class GeoloTagGroup extends ViewGroup {
         }
 
         setMeasuredDimension(widthMode == MeasureSpec.EXACTLY ? widthSize : width,
-            heightMode == MeasureSpec.EXACTLY ? heightSize : height);
+                heightMode == MeasureSpec.EXACTLY ? heightSize : height);
     }
 
     @Override
@@ -349,13 +398,16 @@ public class GeoloTagGroup extends ViewGroup {
         }
     }
 
-    /** 
-     * 动态切换模式<br/>
-     *  {@link #STYLE_MODLE_NORMAL}      ：普通模式<br/>
-     *  {@link #STYLE_MODLE_APPEND}      ：编辑模式<br/>
-     *  {@link #STYLE_MODLE_RADIO}       ：单选模式<br/>
-     *  {@link #STYLE_MODLE_MULTI_SELECT}：多选模式<br/>
-     *  */
+    /**
+     * <pre>
+     * 动态切换模式
+     * @param styleModle
+     *  {@link #STYLE_MODLE_NORMAL}      ：普通模式
+     *  {@link #STYLE_MODLE_APPEND}      ：编辑模式
+     *  {@link #STYLE_MODLE_RADIO}       ：单选模式
+     *  {@link #STYLE_MODLE_MULTI_SELECT}：多选模式
+     *  </pre>
+     */
     public void switchStyleModel(int styleModle) {
         if (styleModle < STYLE_MODLE_NORMAL || styleModle > STYLE_MODLE_MULTI_SELECT) {
             styleModle = STYLE_MODLE_NORMAL;
@@ -387,11 +439,13 @@ public class GeoloTagGroup extends ViewGroup {
     }
 
     /**
-     * 获取当前的模式<br/>
-     *  {@link #STYLE_MODLE_NORMAL}      ：普通模式<br/>
-     *  {@link #STYLE_MODLE_APPEND}      ：编辑模式<br/>
-     *  {@link #STYLE_MODLE_RADIO}       ：单选模式<br/>
-     *  {@link #STYLE_MODLE_MULTI_SELECT}：多选模式<br/>
+     * @return 获取当前的模式
+     * <pre>
+     *  {@link #STYLE_MODLE_NORMAL}      ：普通模式
+     *  {@link #STYLE_MODLE_APPEND}      ：编辑模式
+     *  {@link #STYLE_MODLE_RADIO}       ：单选模式
+     *  {@link #STYLE_MODLE_MULTI_SELECT}：多选模式
+     *  </pre>
      */
     public int getCurrentStyleModel() {
         return styleModle;
@@ -477,9 +531,10 @@ public class GeoloTagGroup extends ViewGroup {
         return tagList.toArray(new String[tagList.size()]);
     }
 
-    /** 
+    /**
      * Returns the checked tag view list in the group.
-     * 获取被选择的标签内容
+     *
+     * @return 获取被选择的标签内容
      */
     public List<String> getCheckedTagList() {
         ArrayList<String> checkTags = new ArrayList<>();
@@ -498,6 +553,9 @@ public class GeoloTagGroup extends ViewGroup {
     }
 
     /**
+     * Set the tags. It will remove all previous tags first.
+     *
+     * @param tagList the tag list to set.
      * @see #setTags(String...)
      */
     public void setTags(List<String> tagList) {
@@ -527,6 +585,8 @@ public class GeoloTagGroup extends ViewGroup {
      * 3. 单选模式只取数组第一个值
      * 4. 多选模式和编辑模式，完全适用
      * </pre>
+     *
+     * @param indexs 设定被选择的便签的位置
      */
     public void setCheckedTags(int... indexs) {
         int count = getChildCount();
@@ -649,7 +709,9 @@ public class GeoloTagGroup extends ViewGroup {
         addView(newTag);
     }
 
-    /** 清除所有已选的标签状态 */
+    /**
+     * 清除所有已选的标签状态
+     */
     private void cleanCheckedStatus() {
         ArrayList<TagView> checkedTagList = getCheckedTag();
         for (TagView checkedTag : checkedTagList) {
@@ -697,22 +759,25 @@ public class GeoloTagGroup extends ViewGroup {
         /**
          * Called when a tag has been appended to the group.
          *
-         * @param tag the appended tag.
+         * @param geoloTagGroup 当前TagGroup
+         * @param tag           the appended tag.
          */
         void onAppend(GeoloTagGroup geoloTagGroup, String tag);
 
         /**
          * Called when a tag has been deleted from the the group.
          *
-         * @param tag the deleted tag.
+         * @param geoloTagGroup 当前TagGroup
+         * @param tag           the deleted tag.
          */
         void onDelete(GeoloTagGroup geoloTagGroup, String tag);
 
         /**
          * Called when the checked state of a tag view has changed.
          *
-         * @param geoloTagGroup The compound button view whose state has changed.
-         * @param isChecked  The new checked state of buttonView.
+         * @param geoloTagGroup 当前TagGroup
+         * @param tag           The compound button view whose state has changed.
+         * @param isChecked     The new checked state of buttonView.
          */
         void onCheckedChanged(GeoloTagGroup geoloTagGroup, String tag, boolean isChecked);
     }
@@ -813,7 +878,7 @@ public class GeoloTagGroup extends ViewGroup {
                     }
                     if (mOnTagChangeListener != null) {
                         mOnTagChangeListener.onCheckedChanged(GeoloTagGroup.this, tag.getText().toString(),
-                            tag.isChecked);
+                                tag.isChecked);
                     }
                 }
             } else {
@@ -828,26 +893,42 @@ public class GeoloTagGroup extends ViewGroup {
      * The tag view which has two states can be either NORMAL or INPUT.
      */
     class TagView extends TextView {
-        /** 基本类型 */
+        /**
+         * 基本类型
+         */
         public static final int STATE_NORMAL = 0;
-        /** 可编辑类型 */
+        /**
+         * 可编辑类型
+         */
         public static final int STATE_INPUT = 1;
-        /** 可选择类型 */
+        /**
+         * 可选择类型
+         */
         public static final int STATE_CHECK = 2;
 
-        /** The offset to the text. */
+        /**
+         * The offset to the text.
+         */
         private static final int CHECKED_MARKER_OFFSET = 3;
 
-        /** The stroke width of the checked marker */
+        /**
+         * The stroke width of the checked marker
+         */
         private static final int CHECKED_MARKER_STROKE_WIDTH = 4;
 
-        /** The current state. */
+        /**
+         * The current state.
+         */
         private int mState;
 
-        /** Indicates the tag if checked. */
+        /**
+         * Indicates the tag if checked.
+         */
         private boolean isChecked = false;
 
-        /** Indicates the tag if pressed. */
+        /**
+         * Indicates the tag if pressed.
+         */
         private boolean isPressed = false;
 
         private Paint mBorderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -856,29 +937,45 @@ public class GeoloTagGroup extends ViewGroup {
 
         private Paint mCheckedMarkerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        /** The rect for the tag's left corner drawing. */
+        /**
+         * The rect for the tag's left corner drawing.
+         */
         private RectF mLeftCornerRectF = new RectF();
 
-        /** The rect for the tag's right corner drawing. */
+        /**
+         * The rect for the tag's right corner drawing.
+         */
         private RectF mRightCornerRectF = new RectF();
 
-        /** The rect for the tag's horizontal blank fill area. */
+        /**
+         * The rect for the tag's horizontal blank fill area.
+         */
         private RectF mHorizontalBlankFillRectF = new RectF();
 
-        /** The rect for the tag's vertical blank fill area. */
+        /**
+         * The rect for the tag's vertical blank fill area.
+         */
         private RectF mVerticalBlankFillRectF = new RectF();
 
-        /** The rect for the checked mark draw bound. */
+        /**
+         * The rect for the checked mark draw bound.
+         */
         private RectF mCheckedMarkerBound = new RectF();
 
-        /** Used to detect the touch event. */
+        /**
+         * Used to detect the touch event.
+         */
         private Rect mOutRect = new Rect();
 
-        /** The path for draw the tag's outline border. */
+        /**
+         * The path for draw the tag's outline border.
+         */
         private Path mBorderPath = new Path();
 
-        /** The path effect provide draw the dash border. */
-        private PathEffect mPathEffect = new DashPathEffect(new float[] {10, 5}, 0);
+        /**
+         * The path effect provide draw the dash border.
+         */
+        private PathEffect mPathEffect = new DashPathEffect(new float[]{10, 5}, 0);
 
         {
             mBorderPaint.setStyle(Paint.Style.STROKE);
@@ -893,7 +990,7 @@ public class GeoloTagGroup extends ViewGroup {
             super(context);
             setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
             setLayoutParams(new GeoloTagGroup.LayoutParams(GeoloTagGroup.LayoutParams.WRAP_CONTENT,
-                GeoloTagGroup.LayoutParams.WRAP_CONTENT));
+                    GeoloTagGroup.LayoutParams.WRAP_CONTENT));
 
             setGravity(Gravity.CENTER);
             setText(text);
@@ -923,7 +1020,7 @@ public class GeoloTagGroup extends ViewGroup {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                         if (actionId == EditorInfo.IME_NULL
-                            && (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)) {
+                                && (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)) {
                             if (isInputAvailable()) {
                                 // If the input content is available, end the input and dispatch
                                 // the event, then append a new INPUT state tag.
@@ -952,7 +1049,7 @@ public class GeoloTagGroup extends ViewGroup {
                                         removeView(lastNormalTagView);
                                         if (mOnTagChangeListener != null) {
                                             mOnTagChangeListener.onDelete(GeoloTagGroup.this,
-                                                lastNormalTagView.getText().toString());
+                                                    lastNormalTagView.getText().toString());
                                         }
                                     } else {
                                         cleanCheckedStatus();
@@ -996,10 +1093,10 @@ public class GeoloTagGroup extends ViewGroup {
             isChecked = checked;
             // Make the checked mark drawing region.
             setPadding(
-                horizontalPadding,
-                verticalPadding,
-                (isChecked && styleModle == STYLE_MODLE_APPEND) ? (int) (horizontalPadding + getHeight() / 2.5f + CHECKED_MARKER_OFFSET)
-                    : horizontalPadding, verticalPadding);
+                    horizontalPadding,
+                    verticalPadding,
+                    (isChecked && styleModle == STYLE_MODLE_APPEND) ? (int) (horizontalPadding + getHeight() / 2.5f + CHECKED_MARKER_OFFSET)
+                            : horizontalPadding, verticalPadding);
             invalidatePaint();
         }
 
@@ -1078,9 +1175,9 @@ public class GeoloTagGroup extends ViewGroup {
                 canvas.save();// 绘制 'X' 图片
                 canvas.rotate(45, mCheckedMarkerBound.centerX(), mCheckedMarkerBound.centerY());
                 canvas.drawLine(mCheckedMarkerBound.left, mCheckedMarkerBound.centerY(), mCheckedMarkerBound.right,
-                    mCheckedMarkerBound.centerY(), mCheckedMarkerPaint);
+                        mCheckedMarkerBound.centerY(), mCheckedMarkerPaint);
                 canvas.drawLine(mCheckedMarkerBound.centerX(), mCheckedMarkerBound.top, mCheckedMarkerBound.centerX(),
-                    mCheckedMarkerBound.bottom, mCheckedMarkerPaint);
+                        mCheckedMarkerBound.bottom, mCheckedMarkerPaint);
                 canvas.restore();
             }
             canvas.drawPath(mBorderPath, mBorderPaint);
@@ -1125,12 +1222,12 @@ public class GeoloTagGroup extends ViewGroup {
             int m = (int) (h / 2.5f);
             h = bottom - top;
             mCheckedMarkerBound.set(right - m - horizontalPadding + CHECKED_MARKER_OFFSET, top + h / 2 - m / 2, right
-                - horizontalPadding + CHECKED_MARKER_OFFSET, bottom - h / 2 + m / 2);
+                    - horizontalPadding + CHECKED_MARKER_OFFSET, bottom - h / 2 + m / 2);
 
             // Ensure the checked mark drawing region is correct across screen orientation changes.
             if (isChecked && mState == STATE_INPUT) {
                 setPadding(horizontalPadding, verticalPadding,
-                    (int) (horizontalPadding + h / 2.5f + CHECKED_MARKER_OFFSET), verticalPadding);
+                        (int) (horizontalPadding + h / 2.5f + CHECKED_MARKER_OFFSET), verticalPadding);
             }
         }
 
@@ -1187,7 +1284,7 @@ public class GeoloTagGroup extends ViewGroup {
                 if (beforeLength == 1 && afterLength == 0) {
                     // backspace
                     return sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL))
-                        && sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+                            && sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
                 }
                 return super.deleteSurroundingText(beforeLength, afterLength);
             }
