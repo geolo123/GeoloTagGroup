@@ -21,7 +21,7 @@
 #### Gradle
 ```groovy
 dependencies {
-   compile 'com.android.geolo.library.taggroup:taggroup:1.0.0@aar'
+   compile 'com.android.geolo.library.taggroup:taggroup:1.0.1@aar'
 }
 ```
 
